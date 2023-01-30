@@ -15,9 +15,9 @@ class JsonSerializer implements JsonSerializable
 
     /**
      * Encode this object to JSON
+     * @return mixed
      */
-    #[\ReturnTypeWillChange]
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return $this->args;
     }

@@ -12,6 +12,7 @@ use Pipedrive\APIHelper;
 use Pipedrive\Configuration;
 use Pipedrive\Models;
 use Pipedrive\Exceptions;
+use Pipedrive\Utils\CamelCaseHelper;
 use Pipedrive\Utils\DateTimeHelper;
 use Pipedrive\Http\HttpRequest;
 use Pipedrive\Http\HttpResponse;
@@ -91,7 +92,6 @@ class LeadsController extends BaseController
         //prepare headers
         $_headers = array (
             'user-agent'    => BaseController::USER_AGENT,
-            'Accept'        => 'application/json',
             'Authorization' => sprintf('Bearer %1$s', Configuration::$oAuthToken->accessToken)
         );
 
@@ -115,9 +115,7 @@ class LeadsController extends BaseController
         //handle errors defined at the API level
         $this->validateResponse($_httpResponse, $_httpContext);
 
-        $mapper = $this->getJsonMapper();
-
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetLeads');
+        return CamelCaseHelper::keysToCamelCase($response->body);
     }
 
     /**
@@ -169,7 +167,6 @@ class LeadsController extends BaseController
         //prepare headers
         $_headers = array (
             'user-agent'    => BaseController::USER_AGENT,
-            'Accept'        => 'application/json',
             'content-type'  => 'application/json; charset=utf-8',
             'Authorization' => sprintf('Bearer %1$s', Configuration::$oAuthToken->accessToken)
         );
@@ -197,9 +194,7 @@ class LeadsController extends BaseController
         //handle errors defined at the API level
         $this->validateResponse($_httpResponse, $_httpContext);
 
-        $mapper = $this->getJsonMapper();
-
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\PostLead');
+        return CamelCaseHelper::keysToCamelCase($response->body);
     }
 
     /**
@@ -229,7 +224,6 @@ class LeadsController extends BaseController
         //prepare headers
         $_headers = array (
             'user-agent'    => BaseController::USER_AGENT,
-            'Accept'        => 'application/json',
             'Authorization' => sprintf('Bearer %1$s', Configuration::$oAuthToken->accessToken)
         );
 
@@ -253,9 +247,7 @@ class LeadsController extends BaseController
         //handle errors defined at the API level
         $this->validateResponse($_httpResponse, $_httpContext);
 
-        $mapper = $this->getJsonMapper();
-
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteLead');
+        return CamelCaseHelper::keysToCamelCase($response->body);
     }
 
     /**
@@ -285,7 +277,6 @@ class LeadsController extends BaseController
         //prepare headers
         $_headers = array (
             'user-agent'    => BaseController::USER_AGENT,
-            'Accept'        => 'application/json',
             'Authorization' => sprintf('Bearer %1$s', Configuration::$oAuthToken->accessToken)
         );
 
@@ -309,9 +300,7 @@ class LeadsController extends BaseController
         //handle errors defined at the API level
         $this->validateResponse($_httpResponse, $_httpContext);
 
-        $mapper = $this->getJsonMapper();
-
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\PostLead');
+        return CamelCaseHelper::keysToCamelCase($response->body);
     }
 
     /**
@@ -362,7 +351,7 @@ class LeadsController extends BaseController
         //prepare headers
         $_headers = array (
             'user-agent'                => BaseController::USER_AGENT,
-            'Accept'                    => 'application/json',
+            'content-type'  => 'application/json; charset=utf-8',
             'Authorization' => sprintf('Bearer %1$s', Configuration::$oAuthToken->accessToken)
         );
 
@@ -400,9 +389,7 @@ class LeadsController extends BaseController
         //handle errors defined at the API level
         $this->validateResponse($_httpResponse, $_httpContext);
 
-        $mapper = $this->getJsonMapper();
-
-        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\PostLead');
+        return CamelCaseHelper::keysToCamelCase($response->body);
     }
 
 

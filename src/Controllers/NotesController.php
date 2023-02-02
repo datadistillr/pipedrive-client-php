@@ -54,11 +54,11 @@ class NotesController extends BaseController
      * @param string  $options['leadId']                       (optional) ID of the lead which notes to fetch. If
      *                                                         omitted, notes about all leads will be returned.
      * @param integer  $options['dealId']                      (optional) ID of the deal which notes to fetch. If
-     *                                                         omitted, notes about all deals will be returned.
+     *                                                         omitted, notes about all deals with be returned.
      * @param integer  $options['personId']                    (optional) ID of the person whose notes to fetch. If
-     *                                                         omitted, notes about all persons will be returned.
+     *                                                         omitted, notes about all persons with be returned.
      * @param integer  $options['orgId']                       (optional) ID of the organization which notes to fetch.
-     *                                                         If omitted, notes about all organizations will be
+     *                                                         If omitted, notes about all organizations with be
      *                                                         returned.
      * @param integer  $options['start']                       (optional) Pagination start
      * @param integer  $options['limit']                       (optional) Items shown per page
@@ -141,7 +141,7 @@ class NotesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\GetNotes'));
+        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\GetNotes');
     }
 
     /**
@@ -227,7 +227,7 @@ class NotesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\PostNote'));
+        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\PostNote');
     }
 
     /**
@@ -283,7 +283,7 @@ class NotesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteNote'));
+        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\DeleteNote');
     }
 
     /**
@@ -339,7 +339,7 @@ class NotesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\PostNote'));
+        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\PostNote');
     }
 
     /**
@@ -431,7 +431,7 @@ class NotesController extends BaseController
 
         $mapper = $this->getJsonMapper();
 
-        return CamelCaseHelper::keysToCamelCase($mapper->mapClass($response->body, 'Pipedrive\\Models\\PostNote'));
+        return $mapper->mapClass($response->body, 'Pipedrive\\Models\\PostNote');
     }
 
 

@@ -191,6 +191,7 @@ class ActivitiesController extends BaseController
      * @param string   $options['duration']     (optional) Duration of the activity. Format: HH:MM
      * @param integer  $options['userId']       (optional) ID of the user whom the activity will be assigned to. If
      *                                          omitted, the activity will be assigned to the authorized user.
+     * @param string   $options['leadId']       (optional) ID of the lead the activity will be associated with
      * @param integer  $options['dealId']       (optional) ID of the deal this activity will be associated with
      * @param integer  $options['personId']     (optional) ID of the person this activity will be associated with
      * @param string   $options['participants'] (optional) List of multiple persons (participants) this activity will
@@ -230,6 +231,7 @@ class ActivitiesController extends BaseController
             'due_time'     => $this->val($options, 'dueTime'),
             'duration'     => $this->val($options, 'duration'),
             'user_id'      => $this->val($options, 'userId'),
+            'lead_id'      => $this->val($options, 'leadId'),
             'deal_id'      => $this->val($options, 'dealId'),
             'person_id'    => $this->val($options, 'personId'),
             'participants' => $this->val($options, 'participants'),
@@ -384,6 +386,7 @@ class ActivitiesController extends BaseController
      * @param string   $options['duration']     (optional) Duration of the activity. Format: HH:MM
      * @param integer  $options['userId']       (optional) ID of the user whom the activity will be assigned to. If
      *                                          omitted, the activity will be assigned to the authorized user.
+     * @param string   $options['leadId']       (optional) ID of the lead the activity will be associated with
      * @param integer  $options['dealId']       (optional) ID of the deal this activity will be associated with
      * @param integer  $options['personId']     (optional) ID of the person this activity will be associated with
      * @param string   $options['participants'] (optional) List of multiple persons (participants) this activity will
@@ -428,6 +431,7 @@ class ActivitiesController extends BaseController
             'due_time'     => $this->val($options, 'dueTime'),
             'duration'     => $this->val($options, 'duration'),
             'user_id'      => $this->val($options, 'userId'),
+            'lead_id'      => $this->val($options, 'leadId'),
             'deal_id'      => $this->val($options, 'dealId'),
             'person_id'    => $this->val($options, 'personId'),
             'participants' => $this->val($options, 'participants'),
